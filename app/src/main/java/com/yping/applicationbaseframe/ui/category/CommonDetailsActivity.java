@@ -44,12 +44,12 @@ public class CommonDetailsActivity extends AppCompatActivity {
         });
         //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
         CollapsingToolbarLayout mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
-        mCollapsingToolbarLayout.setTitle("Bar Brother 徒手健身");
+        mCollapsingToolbarLayout.setTitle("上衣专区");
         //通过CollapsingToolbarLayout修改字体颜色
         mCollapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);//设置还没收缩时状态下字体颜色
         mCollapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);//设置收缩后Toolbar上字体的颜色
         //toolbar navigationicon 改变返回按钮颜色
-        final Drawable upArrow = getResources().getDrawable(R.mipmap.default_header);
+        final Drawable upArrow = getResources().getDrawable(R.mipmap.icon_back);
         upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
