@@ -55,10 +55,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-
+                initView(root);
             }
         });
-        initView(root);
         return root;
     }
 
@@ -71,7 +70,6 @@ public class HomeFragment extends Fragment {
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.custom_divider));
         recyclerView.addItemDecoration(divider);
-
         refreshLayout = root.findViewById(R.id.refresh_layout);
         initData();
     }
