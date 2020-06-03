@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+def dbflow_version = "4.0.3"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -23,7 +24,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    // 强制让所有模块都用相同的支持库版本。
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion '26.1.0'
+//                }
+//            }
+//        }
+//    }
 }
 
 dependencies {
@@ -49,9 +60,14 @@ dependencies {
     implementation 'com.lzy.net:okserver:2.0.5'
 
     //图片选择器  https://www.jianshu.com/p/6ac6b681c413
-    implementation 'com.github.wildma:PictureSelector:1.1.1'
+//    implementation 'com.github.wildma:PictureSelector:1.1.1'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    /*图片多选框架*/
+    implementation 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
     // 图片加载器  https://www.cnblogs.com/Free-Thinker/p/11949889.html
+    implementation 'com.zhihu.android:matisse:+'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.youth.banner:banner:1.4.4'
@@ -63,4 +79,12 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'  //  this
 
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //数据库
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    //视频播放器
+    implementation 'com.shuyu:GSYVideoPlayer:6.0.2'
+    implementation 'com.contrarywind:Android-PickerView:3.2.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 }
