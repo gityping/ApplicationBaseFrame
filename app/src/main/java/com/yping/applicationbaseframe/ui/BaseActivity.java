@@ -14,7 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+//https://blog.csdn.net/weixin_40010386/article/details/80800602
+//https://www.jianshu.com/p/eec9feb78b23
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * 是否沉浸状态栏
      **/
@@ -68,6 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         setListener();
         doBusiness(this);
     }
+
     /**
      * [沉浸状态栏]
      */
@@ -85,6 +88,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * [初始化参数]
      * 只能接收数据，不能直接装载数据，因为此方法在initView之前
+     *
      * @param parms
      */
     public abstract void initParms(Bundle parms);
